@@ -26,8 +26,8 @@ const connect = async () => {
     }
 }
 const allowedOrigins = [
-  "http://localhost:5173",           // local dev frontend
-  "https://skillora-ui.vercel.app"  // your deployed frontend
+  "http://localhost:5173"         // local dev frontend
+ 
 ];
 
 // app.use(cors({

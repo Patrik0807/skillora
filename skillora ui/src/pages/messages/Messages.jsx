@@ -7,8 +7,7 @@ import moment from "moment";
 
 const Messages = () => {
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-  console.log("Current User:", currentUser);
-console.log("Data from conversations:", data);
+
 
   const queryClient = useQueryClient();
 
@@ -19,7 +18,8 @@ console.log("Data from conversations:", data);
         return res.data;
       }),
   });
-
+  console.log("Current User:", currentUser);
+console.log("Data from conversations:", data);
   const mutation = useMutation({
     mutationFn: (id) => {
       return newRequest.put(`/conversations/${id}`);

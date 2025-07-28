@@ -29,7 +29,7 @@ const connect = async () => {
 
 
 app.use(cors({
-    origin:"http://localhost:5173",credentials:true}))
+    origin:"https://skillora-ui.vercel.app/",credentials:true}))
 // app.use(cors({
 //   origin: function(origin, callback) {
 //     // Allow requests with no origin (like mobile apps or curl)

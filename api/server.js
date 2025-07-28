@@ -13,7 +13,8 @@ import cors from "cors";
 
 const app = express();
 dotenv.config();
-const port = 3000;
+const port = process.env.PORT || 3000;
+
 
 mongoose.set('strictQuery', true)
 
@@ -25,6 +26,7 @@ const connect = async () => {
         console.log(error);
     }
 }
+
 
 app.use(cors({
     origin:"http://localhost:5173",credentials:true}))

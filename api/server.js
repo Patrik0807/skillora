@@ -25,13 +25,9 @@ const connect = async () => {
         console.log(error);
     }
 }
-const allowedOrigins = [
-  //"https://localhost:5173"         // local dev frontend
- "https://skillora-ui.vercel.app"
-];
 
-// // app.use(cors({
-// //     origin:"http://localhost:5173",credentials:true}))
+app.use(cors({
+    origin:"http://localhost:5173",credentials:true}))
 // app.use(cors({
 //   origin: function(origin, callback) {
 //     // Allow requests with no origin (like mobile apps or curl)
@@ -45,11 +41,6 @@ const allowedOrigins = [
 //   },
 //   credentials: true
 // }));
-app.use(cors({
-  origin: allowedOrigins,
-  credentials: true,
-}));
-
 
 
 app.use(express.json());
@@ -67,7 +58,8 @@ app.use((err,req,res,next)=>{
     const errorstatus= err.status || 500
     const errorMessage= err.message || "something went wrong !"
 
-    return res.status(errorstatus).send(errorMessage);
+    return res.status(errorstatus).json({ success: false, message: errorMessage });
+
 })
 
 app.listen(port, () => {
